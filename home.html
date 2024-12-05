@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title> Group Final Project - INST 377</title>
+        <script src="script.js" defer></script>
+        <link rel='stylesheet' href="css.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href='http://127.0.0.1:5500/INST377-Final-LetUsCook/home.html'> Recipe of the Day</a></li>
+                <li><a href='otherpages.html'> Recipe</a></li>
+                <li><a href='otherpages.html'> Help</a></li>
+                <li><a href='otherpages.html'> About Us</a></li>
+            </ul>
+        </nav>
+        <h1> My Pantry </h1>
+        <form id="ingredientsMenu" onsubmit="ingredientMenuLookup(event)">
+        <label for="ingredient">Please Enter your Ingredient(s)</label>
+        <input type="text" id="ingredient" placeholder="e.g. Flour" required>
+        <select id="recipesDisplayed" required>
+            <option value="10">10</option>
+            <option value="15">15</option>
+        </select>
+        <button type="submit" class="custom-btn"> Submit</button>
+        <p id="p">Random</p>
+        <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Dynamic rows will be inserted here -->
+            </tbody>
+          </table>
+    </body>
+</html>
