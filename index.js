@@ -1,5 +1,5 @@
 // config file with all the required keys that need to be hidden
-const config= require('./config.json');
+//const config= require('./config.json');
 
 // Runs express server, which serves the website
 const express = require('express');
