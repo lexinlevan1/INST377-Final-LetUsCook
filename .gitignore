@@ -1,2 +1,5 @@
 # Ignoring config.json file full of sensitive information
 /config.json
+
+# Ignoring folder
+.env

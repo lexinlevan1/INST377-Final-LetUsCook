@@ -6,6 +6,9 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+//dotenv 
+require('dotenv').config();
+
 //bodyparser
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -13,7 +16,7 @@ app.use(bodyParser.json());
 // supabase client
 const supabaseClient = require('@supabase/supabase-js');
 const supabaseUrl = 'https://eyzxqhcflewpknribwuc.supabase.co'
-const supabaseKey = config.supabaseKey;
+const supabaseKey = process.env.supabaseKey;
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 
