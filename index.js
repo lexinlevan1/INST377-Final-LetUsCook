@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // supabase client
 const supabaseClient = require('@supabase/supabase-js');
 const supabaseUrl = 'https://eyzxqhcflewpknribwuc.supabase.co'
-const supabaseKey = process.env.supabaseKey;
+const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 
