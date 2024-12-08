@@ -1,3 +1,6 @@
+// config file with all the required keys that need to be hidden
+const config= require('./config.js');
+
 // Runs express server, which serves the website
 const express = require('express');
 const app = express();
@@ -6,7 +9,8 @@ const port = 3000;
 // supabase client
 const supabaseClient = require('@supabase/supabase-js');
 const supabaseUrl = 'https://redcqmvhixndynjxctfk.supabase.co'
-
+const supabaseKey = config.supabaseKey;
+const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 
 app.use(express.static(__dirname + '/public'));
@@ -17,8 +21,21 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/home.html');
 })
 
-app.get('/mypantry', (req, res) => {
+app.get('/mypantry', async (req, res) => {
     console.log('Loading mypantry');
+
+    const { data, error } = await supabase
+    .from('pantry').select()
+
+    if (error) {
+        console.log('Error loading pantry');
+        res.send('Error loading pantry');
+    } else { 
+        console.log('Pantry loaded successfully');
+        res.send(data);
+    }
+
+
     res.send('myPantryPage');
 })
 
