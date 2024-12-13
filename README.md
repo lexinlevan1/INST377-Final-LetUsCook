@@ -13,13 +13,13 @@ Let Us Cook
 
 ## Description
 
-This application is aimed to help anyone who struggles coming up with recipes daily, specifically college students, with recipe ideas based on what the user has in their pantry. The user will be prompted to enter the ingedients they have and it will provide them with a list of recipes they can make with these ingredients. This application was written using HTML, CSS, Javascript, Node.js and Supabase and will run using Vercel. 
+This application is aimed to help anyone who struggles coming up with recipes daily, specifically college students, with recipe ideas based on what the user has in their pantry. The user will be prompted to enter the ingedients they have and it will provide them with a list of recipes they can make with these ingredients. This application was written using HTML, CSS, Javascript, Node.js and Supabase and will deployed using Vercel. 
 
 
 ## Description of target browsers
 
 * IOS
-* Andriod
+* Android
 * Desktop Browsers
 
 ## Developer Manual
@@ -39,6 +39,9 @@ This application is aimed to help anyone who struggles coming up with recipes da
 
 Run the following command on the terminal to run the application on your local device (it will be available at "http://localhost:3000"
 * `npm start`
+
+Alternatively, you could visit the vercel link to view the running application through Vercel:
+* https://inst-377-final-let-us-cook.vercel.app/
 
 ### Running Tests
 
