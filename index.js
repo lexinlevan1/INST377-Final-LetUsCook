@@ -25,8 +25,8 @@ app.use(express.static(__dirname + '/public'));
 // get request to load our home-page
 app.get('/', (req, res) => {
     console.log('Loading home-page');
-    res.sendFile(__dirname + '/public/home.html');
-})
+    res.sendFile('public/home.html', { root: __dirname });
+});
 
 app.get('/api/mypantry', async (req, res) => {
     console.log('Loading mypantry');
@@ -36,13 +36,12 @@ app.get('/api/mypantry', async (req, res) => {
 
     if (error) {
         console.log('Error loading pantry');
-        res.send('Error loading pantry');
+        res.send(error);
     } else { 
         console.log('Pantry loaded successfully');
         res.send(data);
     }
-
-})
+});
 
 app.post('/api/mypantry', async (req, res) => {
 
@@ -53,7 +52,10 @@ app.post('/api/mypantry', async (req, res) => {
 
     const { data, error } = await supabase
         .from('pantry')
-        .insert({ ingredient: ingredient, quantity: quantity })
+        .insert({ 
+            ingredient: ingredient, 
+            quantity: quantity 
+        })
         .select();
 })
 

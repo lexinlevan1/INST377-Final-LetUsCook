@@ -71,8 +71,7 @@ async function loadPantry(){
     });
     document.body.appendChild(table);
 
-  })
-
+  });
 } 
 
 function ingredientMenuLookup(event) {

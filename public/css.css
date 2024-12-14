@@ -23,18 +23,3 @@ nav ul li:hover {
 body {
     background-color: gray;
 }
-
-
-
-.custom-btn {
-    padding: 5px 10px;
-    background-color: #9c52b5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.custom-btn:hover {
-    background-color: #d95ad2;
-}
