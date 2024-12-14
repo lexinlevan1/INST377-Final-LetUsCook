@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/home.html');
 })
 
-app.get('/mypantry', async (req, res) => {
+app.get('/api/mypantry', async (req, res) => {
     console.log('Loading mypantry');
 
     const { data, error } = await supabase
@@ -44,7 +44,7 @@ app.get('/mypantry', async (req, res) => {
 
 })
 
-app.post('/mypantry', async (req, res) => {
+app.post('/api/mypantry', async (req, res) => {
     console.log('Adding to myPantry!');
     console.log('request',req.body);
     res.send('Adding to myPantry!');

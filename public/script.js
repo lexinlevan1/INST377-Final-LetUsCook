@@ -39,10 +39,11 @@ function printText() {
   text.innerHTML = "Hello World";
 }
 
+// adds ingredient based on the input fields of ingredient and quantity
 async function addIngredient(){
   console.log('Adding Ingredient to Pantry');
 
-  await fetch(`${host}/mypantry`, {
+  await fetch(`${host}/api/mypantry`, {
     method: 'POST',
 
     body: JSON.stringify({
