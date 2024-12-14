@@ -1,83 +1,3 @@
-const host = window.location.origin;
-
-
-// function adds ingredient from webpage to pantry database
-async function addIngredient(){
-
-  // Get the ingredient and quantity from the form
-  const ingredient= document.getElementById('ingredient').value
-  const quantity= document.getElementById('quantity').value
-
-  console.log(`Adding ${quantity} of ${ingredient} to pantry`);
-
-  await fetch(`${host}/api/mypantry`, {
-    method: 'POST',
-
-    body: JSON.stringify({
-      ingredient: `${ingredient}`,
-      quantity: `${quantity}`
-    }),
-
-    headers: {
-      'Content-Type': 'application/json'
-    },
-
-  })
-  .then(res => res.json());
-  await loadPantry();
-}
-
-async function loadPantry(){
-  await fetch(`${host}/api/mypantry`)
-  .then(res => res.json())
-  .then(data => {
-    console.log(data);
-    
-
-    // creating table for pantry
-
-    const table = document.createElement('table'); 
-    table.setAttribute('id', 'pantry-table'); 
-
-    const tableRow = document.createElement('tr')
-
-    const tableHeadingIngredient = document.createElement('th');
-    tableHeadingIngredient.innerHTML = 'Ingredient';
-    tableRow.appendChild(tableHeadingIngredient);
-
-    const tableHeadingQuantity = document.createElement('th');
-    tableHeadingQuantity.innerHTML = 'Quantity';
-    tableRow.appendChild(tableHeadingQuantity);
-
-    table.appendChild(tableRow)
-
-    // going through each data item and adding it to the table
-    data.forEach(item => {
-      const pantryRow = document.createElement('tr');
-      const pantryIngredient = document.createElement('td');
-      const pantryQuantity = document.createElement('td');
-
-      pantryIngredient.innerHTML = item.ingredient;
-      pantryQuantity.innerHTML = item.quantity;
-
-      pantryRow.appendChild(pantryIngredient);
-      pantryRow.appendChild(pantryQuantity);
-
-      table.appendChild(pantryRow);
-
-    });
-
-    const preExistingTable = document.getElementById('pantry-table');
-    if(preExistingTable){
-      preExistingTable.remove();
-    }
-
-    // adding table to the webpage
-    document.body.appendChild(table);
-
-  });
-} 
-
 function ingredientMenuLookup(event) {
   event.preventDefault(); // Prevent page from reloading
   const ingredients = document.getElementById("ingredient").value; // Get input value
@@ -117,4 +37,57 @@ function printText() {
   text.innerHTML = "Hello World";
 }
 
-window.onload = loadPantry;
+async function getRecipeOfDay(){
+  //api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=035a7b05ba264f83a777c9c81e5651a3")
+  //  .then((res)=> res.json())
+  //  results = api['results']
+  //  id = results[0].id
+    ingredients = await fetch("http://localhost:3001/ingredients")
+    .then((res)=>res.json())
+
+    const table = document.createElement('table');
+      table.setAttribute('id', 'recipeInfo');
+
+      const tableRow = document.createElement('tr');
+
+      const tableHeading1 = document.createElement('th');
+      tableHeading1.innerHTML = 'Ingredient';
+      tableRow.appendChild(tableHeading1);
+
+      const tableHeading2 = document.createElement('th');
+      tableHeading2.innerHTML = 'Amount';
+      tableRow.appendChild(tableHeading2);
+
+      const tableHeading3 = document.createElement('th');
+      tableHeading3.innerHTML = 'Unit';
+      tableRow.appendChild(tableHeading3);
+
+      table.appendChild(tableRow);
+
+    ingredients['ingredients'].forEach((item)=> {
+      item_name = item.name
+      item_amount = item.amount['us'].value
+      item_unit = item.amount['us'].unit
+      console.log(item_amount, item_unit)
+
+      const customerTableRow = document.createElement('tr');
+        const customerTableIngredient = document.createElement('td');
+        const customerTableAmount = document.createElement('td');
+        const customerTableUnit = document.createElement('td');
+
+        customerTableIngredient.innerHTML = item_name;
+        customerTableAmount.innerHTML = item_amount;
+        customerTableUnit.innerHTML = item_unit;
+
+        customerTableRow.appendChild(customerTableIngredient);
+        customerTableRow.appendChild(customerTableAmount);
+        customerTableRow.appendChild(customerTableUnit);
+
+        table.appendChild(customerTableRow);
+    });
+
+    document.body.appendChild(table)
+}
+
+
+//window.onload = printText;

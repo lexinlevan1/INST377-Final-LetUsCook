@@ -3,7 +3,6 @@ nav ul {
     background-color: #333;
     display: flex;
     justify-content: space-around;
-
 }
 
 nav ul li {
@@ -13,23 +12,34 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-
 }
+
 nav ul li:hover {
-    background-color: #575757;
+    background-color: #5d5d5d;
 }
 
+#intro {
+    font-size: 50px;
+    text-align: center
+}
+
+#chef-image{
+    margin-left: 10px;
+}
 
 body {
-    background-color: gray;
+    background-color: rgb(181, 237, 243);
 }
 
-#pantry-table td, th {
-    border: 1px solid black;
-    padding: 8px;
+.custom-btn {
+    padding: 5px 10px;
+    background-color: #9c52b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#pantry-table {
-    border-collapse: collapse;
-    width: 20%;
+.custom-btn:hover {
+    background-color: #d95ad2;
 }
