@@ -44,7 +44,7 @@ app.get('/mypantry', async (req, res) => {
 
 })
 
-app.post('/mypantryadd', async (req, res) => {
+app.post('/mypantry', async (req, res) => {
     console.log('Adding to myPantry!');
     console.log('request',req.body);
     res.send('Adding to myPantry!');

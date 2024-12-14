@@ -37,4 +37,27 @@ function printText() {
   text.innerHTML = "Hello World";
 }
 
+function addIngredient(){
+  console.log('Adding Ingredient to Pantry');
+
+  const ingredient = document.getElementById('ingredient').value;
+  const quantity = document.getElementById('quantity').value;
+
+  fetch('http://localhost:3000/mypantryadd', {
+    method: 'POST',
+
+    body: JSON.stringify({
+      ingredient: `${document.getElementById('ingredient').value}`,
+      quantity: `${document.getElementById('quantity').value}`
+    }),
+
+    headers: {
+      'Content-Type': 'application/json'
+    },
+
+  })
+  .then(res => res.json());
+  
+}
+
 window.onload = printText;
