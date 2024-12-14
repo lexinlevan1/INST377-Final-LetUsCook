@@ -52,19 +52,19 @@ app.post('/mypantry', async (req, res) => {
     const ingredient = req.body.ingredient;
     const quantity = req.body.quantity;
 
-    if (error) {
-        console.log('Error adding to pantry');
-    }
-    else {
-        const { data, error } = await supabase
+    const { data, error } = await supabase
         .from('pantry')
         .insert({ ingredient: ingredient, quantity: quantity })
         .select();
+
+    if(error) {
+        console.log('Error adding to pantry');
+    } else {
         console.log('Added to pantry successfully');
     }
 })
 
 
 app.listen(port, () => {
-    console.log('Server is running on port' + port);
+    console.log('Server is running on port', port);
 })

@@ -42,9 +42,6 @@ function printText() {
 function addIngredient(){
   console.log('Adding Ingredient to Pantry');
 
-  const ingredient = document.getElementById('ingredient').value;
-  const quantity = document.getElementById('quantity').value;
-
   fetch(`${host}/mypantry`, {
     method: 'POST',
 
