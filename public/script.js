@@ -1,3 +1,5 @@
+const host = window.location.origin;
+
 function ingredientMenuLookup(event) {
   event.preventDefault(); // Prevent page from reloading
   const ingredients = document.getElementById("ingredient").value; // Get input value
@@ -43,7 +45,7 @@ function addIngredient(){
   const ingredient = document.getElementById('ingredient').value;
   const quantity = document.getElementById('quantity').value;
 
-  fetch('http://localhost:3000/mypantry', {
+  fetch(`${host}/mypantry`, {
     method: 'POST',
 
     body: JSON.stringify({
