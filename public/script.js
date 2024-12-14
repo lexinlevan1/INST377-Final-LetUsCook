@@ -9,10 +9,8 @@ async function addIngredient(){
   const quantity= document.getElementById('quantity').value
 
   console.log(`Adding ${quantity} of ${ingredient} to pantry`);
-  alert(`Added ${quantity} of ${ingredient} to MyPantry!`);
 
   await fetch(`${host}/api/mypantry`, {
-    
     method: 'POST',
 
     body: JSON.stringify({
@@ -26,7 +24,6 @@ async function addIngredient(){
 
   })
   .then(res => res.json());
-
   await loadPantry();
 }
 
@@ -69,6 +66,13 @@ async function loadPantry(){
       table.appendChild(pantryRow);
 
     });
+
+    const ExistingTable = document.getElementById('pantry-table');
+    if (ExistingTable) {
+      ExistingTable.remove();
+    }
+
+    // adding table to the webpage
     document.body.appendChild(table);
 
   });

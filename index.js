@@ -44,20 +44,30 @@ app.get('/api/mypantry', async (req, res) => {
 });
 
 app.post('/api/mypantry', async (req, res) => {
-
     const ingredient = req.body.ingredient;
     const quantity = req.body.quantity;
-
+  
     console.log(`Adding ${quantity} of ${ingredient} to pantry`);
-
-    const { data, error } = await supabase
+  
+    try {
+      const { data, error } = await supabase
         .from('pantry')
-        .insert({ 
-            ingredient: ingredient, 
-            quantity: quantity 
-        })
+        .insert({ ingredient: ingredient, quantity: quantity })
         .select();
-})
+  
+      if (error) {
+        console.log('Error inserting data', error);
+        return res.status(500).send({ error: error.message });
+      }
+  
+      console.log('Ingredient added to pantry:', data);
+      res.status(200).send(data);  // Send back the added ingredient as confirmation
+    } catch (error) {
+      console.error('Error processing POST request:', error);
+      res.status(500).send({ error: error.message });
+    }
+  });
+  
 
 
 app.listen(port, () => {
