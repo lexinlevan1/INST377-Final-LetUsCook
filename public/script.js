@@ -1,5 +1,24 @@
 const host = window.location.origin;
 
+async function addIngredient(){
+  console.log('Adding Ingredient to Pantry');
+
+  await fetch(`${host}/api/mypantry`, {
+    method: 'POST',
+
+    body: JSON.stringify({
+      ingredient: `${document.getElementById('ingredient').value}`,
+      quantity: `${document.getElementById('quantity').value}`
+    }),
+
+    headers: {
+      'Content-Type': 'application/json'
+    },
+
+  })
+  .then(res => res.json());
+}
+
 function ingredientMenuLookup(event) {
   event.preventDefault(); // Prevent page from reloading
   const ingredients = document.getElementById("ingredient").value; // Get input value
@@ -39,25 +58,5 @@ function printText() {
   text.innerHTML = "Hello World";
 }
 
-// adds ingredient based on the input fields of ingredient and quantity
-async function addIngredient(){
-  console.log('Adding Ingredient to Pantry');
-
-  await fetch(`${host}/api/mypantry`, {
-    method: 'POST',
-
-    body: JSON.stringify({
-      ingredient: `${document.getElementById('ingredient').value}`,
-      quantity: `${document.getElementById('quantity').value}`
-    }),
-
-    headers: {
-      'Content-Type': 'application/json'
-    },
-
-  })
-  .then(res => res.json());
-
-}
 
 window.onload = printText;
