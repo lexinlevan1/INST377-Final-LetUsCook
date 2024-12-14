@@ -3,12 +3,16 @@ const host = window.location.origin;
 async function addIngredient(){
   console.log('Adding Ingredient to Pantry');
 
+  const ingredient= document.getElementById('ingredient').value
+  const quantity= document.getElementById('quantity').value
+
   await fetch(`${host}/api/mypantry`, {
+    
     method: 'POST',
 
     body: JSON.stringify({
-      ingredient: `${document.getElementById('ingredient').value}`,
-      quantity: `${document.getElementById('quantity').value}`
+      ingredient: `${ingredient}`,
+      quantity: `${quantity}`
     }),
 
     headers: {
@@ -17,6 +21,9 @@ async function addIngredient(){
 
   })
   .then(res => res.json());
+
+  console.log('Ingredient added to Pantry');
+  alert(`Added ${quantity} ${ingredient} to your pantry!`);
 }
 
 function ingredientMenuLookup(event) {
