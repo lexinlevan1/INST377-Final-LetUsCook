@@ -55,27 +55,24 @@ async function loadPantry(){
     table.appendChild(tableRow)
 
     // going through each data item and adding it to the table
-    data.forEach(data => {
+    data.forEach(item => {
       const pantryRow = document.createElement('tr');
       const pantryIngredient = document.createElement('td');
       const pantryQuantity = document.createElement('td');
 
-      pantryIngredient.innerHTML = data.ingredient;
-      pantryQuantity.innerHTML = data.quantity;
+      pantryIngredient.innerHTML = item.ingredient;
+      pantryQuantity.innerHTML = item.quantity;
 
       pantryRow.appendChild(pantryIngredient);
       pantryRow.appendChild(pantryQuantity);
 
       table.appendChild(pantryRow);
 
-    })
+    });
+    document.body.appendChild(table);
 
-    const preExistingTable = document.getElementById('pantry-table');
-    if(preExistingTable){
-      preExistingTable.remove();
-    }
-   document.body.appendChild(table);
   })
+
 } 
 
 function ingredientMenuLookup(event) {
@@ -117,8 +114,4 @@ function printText() {
   text.innerHTML = "Hello World";
 }
 
-
-window.onload = function(){
-  loadPantry();
-  printText();
-}
+window.onload = loadPantry;
