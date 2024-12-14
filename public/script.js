@@ -39,10 +39,10 @@ function printText() {
   text.innerHTML = "Hello World";
 }
 
-function addIngredient(){
+async function addIngredient(){
   console.log('Adding Ingredient to Pantry');
 
-  fetch(`${host}/mypantry`, {
+  await fetch(`${host}/mypantry`, {
     method: 'POST',
 
     body: JSON.stringify({
