@@ -43,7 +43,7 @@ function addIngredient(){
   const ingredient = document.getElementById('ingredient').value;
   const quantity = document.getElementById('quantity').value;
 
-  fetch('http://localhost:3000/mypantryadd', {
+  fetch('http://localhost:3000/mypantry', {
     method: 'POST',
 
     body: JSON.stringify({
@@ -57,7 +57,7 @@ function addIngredient(){
 
   })
   .then(res => res.json());
-  
+
 }
 
 window.onload = printText;

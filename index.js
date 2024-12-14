@@ -56,11 +56,11 @@ app.post('/mypantry', async (req, res) => {
         console.log('Error adding to pantry');
     }
     else {
-        console.log('Added to pantry successfully');
         const { data, error } = await supabase
         .from('pantry')
         .insert({ ingredient: ingredient, quantity: quantity })
         .select();
+        console.log('Added to pantry successfully');
     }
 })
 
