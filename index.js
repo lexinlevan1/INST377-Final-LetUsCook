@@ -45,23 +45,16 @@ app.get('/api/mypantry', async (req, res) => {
 })
 
 app.post('/api/mypantry', async (req, res) => {
-    console.log('Adding to myPantry!');
-    console.log('request',req.body);
-    res.send('Adding to myPantry!');
 
     const ingredient = req.body.ingredient;
     const quantity = req.body.quantity;
+
+    console.log(`Adding ${quantity} of ${ingredient} to pantry`);
 
     const { data, error } = await supabase
         .from('pantry')
         .insert({ ingredient: ingredient, quantity: quantity })
         .select();
-
-    if(error) {
-        console.log('Error adding to pantry');
-    } else {
-        console.log('Added to pantry successfully');
-    }
 })
 
 

@@ -5,6 +5,7 @@
         <link rel='stylesheet' href="css.css">
     </head>
     <body>
+      <!--Navigation Bar-->
         <nav>
             <ul>
                 <li><a href='/public/home.html'> Recipe of the Day</a></li>
@@ -13,8 +14,11 @@
                 <li><a href='otherpages.html'> About Us</a></li>
             </ul>
         </nav>
+
+
         <h1> My Pantry </h1>
 
+        <!--Ingredients Input-->
         <form id="ingredientsMenu" onsubmit="addIngredient(); return false;">
           <label for="ingredient">Please Enter your Ingredient(s) and Quantity: </label>
           <br>
@@ -33,20 +37,14 @@
           </select>
           <button type="submit" class="custom-btn"> Submit</button>
         </form>
-        <p id="p">Random</p>
 
-        <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Image</th>
-              </tr>
-            </thead>
-            <tbody id="tableBody">
-              <!-- Dynamic rows will be inserted here -->
-            </tbody>
-          </table>
+
+        <!--Pantry Table-->
+
+        <p id="p">Random</p>
+        <table id="pantry-table">
+            
+        </table>
 
     </body>
 </html>

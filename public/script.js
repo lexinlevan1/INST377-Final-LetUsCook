@@ -1,10 +1,15 @@
 const host = window.location.origin;
 
-async function addIngredient(){
-  console.log('Adding Ingredient to Pantry');
 
+// function adds ingredient from webpage to pantry database
+async function addIngredient(){
+
+  // Get the ingredient and quantity from the form
   const ingredient= document.getElementById('ingredient').value
   const quantity= document.getElementById('quantity').value
+
+  console.log(`Adding ${quantity} of ${ingredient} to pantry`);
+  alert(`Added ${quantity} of ${ingredient} to MyPantry!`);
 
   await fetch(`${host}/api/mypantry`, {
     
@@ -22,9 +27,56 @@ async function addIngredient(){
   })
   .then(res => res.json());
 
-  console.log('Ingredient added to Pantry');
-  alert(`Added ${quantity} ${ingredient} to your pantry!`);
+  await loadPantry();
 }
+
+async function loadPantry(){
+  await fetch(`${host}/api/mypantry`)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    
+
+    // creating table for pantry
+
+    const table = document.createElement('table'); 
+    table.setAttribute('id', 'pantry-table'); 
+
+    const tableRow = document.createElement('tr')
+
+    const tableHeadingIngredient = document.createElement('th');
+    tableHeadingIngredient.innerHTML = 'Ingredient';
+    tableRow.appendChild(tableHeadingIngredient);
+
+    const tableHeadingQuantity = document.createElement('th');
+    tableHeadingQuantity.innerHTML = 'Quantity';
+    tableRow.appendChild(tableHeadingQuantity);
+
+    table.appendChild(tableRow)
+
+    // going through each data item and adding it to the table
+    data.forEach(data => {
+      const pantryRow = document.createElement('tr');
+      const pantryIngredient = document.createElement('td');
+      const pantryQuantity = document.createElement('td');
+
+      pantryIngredient.innerHTML = data.ingredient;
+      pantryQuantity.innerHTML = data.quantity;
+
+      pantryRow.appendChild(pantryIngredient);
+      pantryRow.appendChild(pantryQuantity);
+
+      table.appendChild(pantryRow);
+
+    })
+
+    const preExistingTable = document.getElementById('pantry-table');
+    if(preExistingTable){
+      preExistingTable.remove();
+    }
+   document.body.appendChild(table);
+  })
+} 
 
 function ingredientMenuLookup(event) {
   event.preventDefault(); // Prevent page from reloading
@@ -66,4 +118,7 @@ function printText() {
 }
 
 
-window.onload = printText;
+window.onload = function(){
+  loadPantry();
+  printText();
+}
