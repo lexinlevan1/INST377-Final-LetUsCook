@@ -67,9 +67,9 @@ async function loadPantry(){
 
     });
 
-    const ExistingTable = document.getElementById('pantry-table');
-    if (ExistingTable) {
-      ExistingTable.remove();
+    const preExistingTable = document.getElementById('pantry-table');
+    if(preExistingTable){
+      preExistingTable.remove();
     }
 
     // adding table to the webpage
