@@ -42,6 +42,13 @@ async function getRecipeOfDay(){
   //  .then((res)=> res.json())
   //  results = api['results']
   //  id = results[0].id
+    recipe_name = "Cookies"
+    //recipe_image = results[0].image
+    recipe_image = "https://img.spoonacular.com/recipes/1096298-312x231.jpg"
+    document.getElementById('rod_name').innerHTML =`Today's Recipe is: ${recipe_name}`
+    //create image
+    img = document.getElementById('rod_image').src= recipe_image
+
     ingredients = await fetch("http://localhost:3001/ingredients")
     .then((res)=>res.json())
 

@@ -7,34 +7,25 @@
     <body>
         <nav>
             <ul>
+                <li><a href = 'home.html'>Home</a></li>
                 <li><a href='recipe_of_day.html'> Recipe of the Day</a></li>
-                <li><a href='otherpages.html'> Recipe</a></li>
-                <li><a href='otherpages.html'> Help</a></li>
-                <li><a href='otherpages.html'> About Us</a></li>
+                <li><a href='pantry.html'> Pantry</a></li>
+                <li><a href='help.html'>Help</a></li>
             </ul>
         </nav>
         <h1 id="intro"> My Pantry </h1>
-        <img id="chef-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuwsnRtAD1A429F9_Q7UedJLofLzmOX-Nn4g&s">
-        <form id="ingredientsMenu" onsubmit="ingredientMenuLookup(event)">
-        <label for="ingredient">Please Enter your Ingredient(s)</label>
-        <input type="text" id="ingredient" placeholder="e.g. Flour" required>
-        <select id="recipesDisplayed" required>
-            <option value="10">10</option>
-            <option value="15">15</option>
-        </select>
-        <button type="submit" class="custom-btn"> Submit</button>
-        <p id="p">Random</p>
-        <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Image</th>
-              </tr>
-            </thead>
-            <tbody id="tableBody">
-              <!-- Dynamic rows will be inserted here -->
-            </tbody>
-          </table>
+
+        <div class="about-us">
+          <h2><u>What is "My Pantry?"</u></h2>
+          <p>"My pantry" is a website where you provide everything in your pantry and based on 
+          what you have and want, we will cook up different recipes that may look appealing to eat. 
+          **going to update
+          </p>
+      </div>
+
+      <img id="chef-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Nbv6XCFJ0XpPzXTxxgAnC4UHEUvGLyYPmw&s">
+      <img id="food-collage" src="https://t3.ftcdn.net/jpg/00/96/56/10/360_F_96561066_kFsKAP48qHGRO2BVSgU0IdPsUN3aHucs.jpg">
+      <button class="pantry_button" role="button" onclick="location.href = 'pantry.html'">Go to Pantry!</button>
+
     </body>
 </html>
