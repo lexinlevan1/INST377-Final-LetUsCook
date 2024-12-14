@@ -52,10 +52,16 @@ app.post('/mypantry', async (req, res) => {
     const ingredient = req.body.ingredient;
     const quantity = req.body.quantity;
 
-    const { data, error } = await supabase
+    if (error) {
+        console.log('Error adding to pantry');
+    }
+    else {
+        console.log('Added to pantry successfully');
+        const { data, error } = await supabase
         .from('pantry')
         .insert({ ingredient: ingredient, quantity: quantity })
         .select();
+    }
 })
 
 
