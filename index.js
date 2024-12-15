@@ -60,6 +60,58 @@ app.get('/api/recipes', async (req, res) => {
   }
 });
 
+app.get('/api/random/recipe', async(req,res)=> {
+  console.log('loading random api')
+  const apiKey = process.env.SPOONACULAR_KEY;
+  console.log(SPOONACULAR_KEY)
+  const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=${apiKey}`
+
+  try {
+    const response = await fetch(apiUrl)
+    const data = await response.json()
+
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.status(200).json(data)
+  } catch (error){
+    res.status(500).json({error: "Failed to fetch recipe data"})
+  }
+})
+
+app.get('/api/recipe/ingredients', async(req,res)=> {
+  const id = req.body.id
+  console.log('loading random api')
+  const apiKey = process.env.SPOONACULAR_KEY;
+  console.log(SPOONACULAR_KEY)
+  const apiUrl = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=${apiKey}`
+
+  try {
+    const response = await fetch(apiUrl)
+    const data = await response.json()
+
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.status(200).json(data)
+  } catch (error){
+    res.status(500).json({error: "Failed to fetch recipe data"})
+  }
+})
+
+app.get('/api/recipe/instructions', async(req,res)=> {
+  const id = req.body.id
+  console.log('loading random api')
+  const apiKey = process.env.SPOONACULAR_KEY;
+  console.log(SPOONACULAR_KEY)
+  const apiUrl = `https://api.spoonacular.com/recipes/${id}/information?&apiKey=${apiKey}`
+
+  try {
+    const response = await fetch(apiUrl)
+    const data = await response.json()
+
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.status(200).json(data)
+  } catch (error){
+    res.status(500).json({error: "Failed to fetch recipe data"})
+  }
+})
 
 app.get('/api/mypantry', async (req, res) => {
     console.log('Loading mypantry');
