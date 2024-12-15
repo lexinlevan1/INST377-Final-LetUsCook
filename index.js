@@ -67,6 +67,26 @@ app.post('/api/mypantry', async (req, res) => {
       res.status(500).send({ error: error.message });
     }
   });
+
+  app.delete('/api/mypantry', async (req, res) => {
+    const ingredient = req.body.ingredient;
+
+    console.log(`Deleting ${ingredient} from pantry`);
+
+    const { data, error } = await supabase
+    .from('pantry')
+    .delete()
+    .match({ ingredient: ingredient });
+
+    if (error) {
+        console.log('Error deleting ingredient');
+        res.send(error);
+    } else {
+        console.log('Ingredient deleted successfully');
+        res.send(data);
+    }
+
+  })
   
 
 

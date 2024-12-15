@@ -1,11 +1,12 @@
 <html>
     <head>
         <title>Pantry</title>
-        <script src="/script.js" defer></script>
+        <script src="scripts/pantry.js" defer></script>
         <link rel='stylesheet' href="css.css">
     </head>
 
-    <body>
+    
+    <body id="mypantry-body">
         <nav class="navbar">
             <div class="logo">MY PANTRY</div>
             <ul class="nav-links">
@@ -16,9 +17,9 @@
             </ul>
         </nav>
 
-        <h1 class="pantryTitle">My Pantry</h1>
+        <h1 class="pantry-header">My Pantry</h1>
         <div id="pantry-container">
-        <form onsubmit="addIngredient(); return false;">
+        <form onsubmit="addIngredient(); return false;" id="pantry-form">
             <label for="ingredient">Please Enter your Ingredient(s)</label>
             <br>
             <input type="text" class="ingredient" placeholder="e.g. Flour" required>
