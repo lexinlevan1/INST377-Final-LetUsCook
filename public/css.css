@@ -57,7 +57,7 @@ nav ul li:hover {
 
 #intro {
     font-size: 50px;
-    text-align: center
+    text-align: center;
 }
 
 .submit-container{
@@ -157,13 +157,20 @@ body {
 
 #rod_name{
     text-align: center;
+    color: white;
+}
+
+#rod-div{
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
 }
 
 #rod_image{
-    margin-left: auto;
-    margin-right: auto;
     display: block;
-    width: 25%
+    width: 25%;
+    margin-left: 20%;;
+    padding-top: 25px;
 }
 
 #rod-instruct{
@@ -176,11 +183,11 @@ body {
 #instruct-h2{
     text-align: center;
     color: white;
+    display: block;
 }
 
 #ingred_desc{
     text-align: center;
-    padding-top: 20px;
     color:#fff;
 }
 

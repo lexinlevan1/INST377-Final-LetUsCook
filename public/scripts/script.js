@@ -49,8 +49,8 @@ async function getRecipeOfDay(){
     return;
   }
 
-  //const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=33d614d7ec7f49f3abc66a103823353f")
-  const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0")
+  const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=33d614d7ec7f49f3abc66a103823353f")
+  //const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0")
 
     .then((res)=> res.json())
     const results = api['results']
@@ -58,13 +58,13 @@ async function getRecipeOfDay(){
     const recipe_name = results[0].title
     const recipe_image = results[0].image;
 
-    //const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
-    const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0`)
+    const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
+    //const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0`)
 
     .then((res)=>res.json())
 
-    //const instructAPI = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
-    const instructAPI = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0`)
+    const instructAPI = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
+    //const instructAPI = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0`)
 
     .then((res)=> res.json())
 
@@ -130,12 +130,15 @@ async function displayRecipe(recipe) {
     table.appendChild(customerTableRow);
   });
 
-  const existingTable = document.getElementById('recipeInfo')
-  if (existingTable){
-    existingTable.remove();
+  const existingDiv = document.querySelector('.ingredients')
+  if (existingDiv) {
+    const existingTable = document.getElementById('recipeInfo')
+    if (existingTable){
+      existingTable.remove();
+    }
   }
 
-  document.body.appendChild(table)
+  existingDiv.appendChild(table)
 
   const title = document.createElement('h2')
   title.id = "instruct-h2"
