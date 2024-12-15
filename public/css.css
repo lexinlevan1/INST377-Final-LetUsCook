@@ -1,3 +1,40 @@
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
+    background-color:#1a1a1a;
+}
+
+.nav-links {
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color: #ccc;
+    text-decoration: none;
+    font-size:14px;
+    transition: color 0.3s ease;
+    padding:30px;
+
+}
+
+.nav-links a:hover {
+    color:#fff;
+
+}
+
+.logo {
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing: 1px;
+    color:#fff;
+}
+
+/* 
+
 nav ul {
     list-style-type: none;
     background-color: #333;
@@ -16,7 +53,7 @@ nav ul li a {
 
 nav ul li:hover {
     background-color: #5d5d5d;
-}
+} */
 
 #intro {
     font-size: 50px;
@@ -57,6 +94,20 @@ nav ul li:hover {
     border: 0;
     margin-left: 10px
   }
+.pantryTitle {
+    position: relative;
+    display:flex;
+    height:35vh;
+    z-index:2;
+    align-items:center;
+    justify-content: space-between;
+    padding:40px;
+    font-size:70px;
+    margin-bottom:20px;
+    font-weight: bold;
+    color: #fff;
+
+}
 
 .container{
     display: flex;
@@ -77,24 +128,31 @@ nav ul li:hover {
 }
 
 body {
-    background-color: rgb(241, 210, 161);
+    /* background-color: rgb(241, 210, 161); */
+    background-color: #121212
 }
 
 .custom-btn {
+    
     padding: 5px 10px;
-    background-color: #9c52b5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #ff7b54;
+    transition: background 0.3s ease;
+    cursor:pointer;
+    font-size: 14px;
+    border-radius:25px;
+    
 }
 
 .custom-btn:hover {
-    background-color: #d95ad2;
+    background-color: #ff7b54;
+    color: #fff;
 }
 
 #rod_title{
     text-align: center;
+    color:#fff;
 }
 
 #rod_name{
@@ -111,6 +169,7 @@ body {
 #ingred_desc{
     text-align: center;
     padding-top: 20px;
+    color:#fff;
 }
 
 #recipeInfo{
@@ -118,4 +177,17 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 20px;
+}
+
+#ingredient {
+    padding:5px 10px;
+    border: none;
+    border-radius:20px;
+    background-color:#333;
+    color:#fff
+}
+
+
+#pantry-container {
+    color:#fff
 }
