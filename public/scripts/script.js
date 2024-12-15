@@ -58,6 +58,7 @@ async function getRecipeOfDay(){
     const id = results[0].id
     const recipe_name = results[0].title
     const recipe_image = results[0].image;
+    console.log(id, recipe_image, recipe_name)
 
     //fetch ingredients for the recipe
     const ingredients = await fetch("/api/recipe/ingredients")
@@ -84,6 +85,7 @@ async function getRecipeOfDay(){
 }
 
 async function displayRecipe(recipe) {
+  console.log("in display recipe")
   const dict = JSON.parse(recipe)
   const id = dict.id
   const instruct = dict.instructAPI
