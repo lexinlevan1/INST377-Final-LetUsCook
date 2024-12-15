@@ -40,6 +40,7 @@ function printText() {
 }
 
 async function getRecipeOfDay(){
+  console.log('in function')
   const today = new Date().toISOString().slice(0,10)
  
   const keys = Object.keys(localStorage)
