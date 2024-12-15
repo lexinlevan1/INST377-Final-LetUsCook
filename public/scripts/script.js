@@ -51,6 +51,7 @@ async function getRecipeOfDay(){
 
   //const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=33d614d7ec7f49f3abc66a103823353f")
   const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0")
+  console.log(api)
     .then((res)=> res.json())
     const results = api['results']
     const id = results[0].id
@@ -59,11 +60,13 @@ async function getRecipeOfDay(){
 
     //const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
     const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0`)
+    console.log(ingredients)
 
     .then((res)=>res.json())
 
     //const instructAPI = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
     const instructAPI = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0`)
+    console.log(instructAPI)
 
     .then((res)=> res.json())
 
