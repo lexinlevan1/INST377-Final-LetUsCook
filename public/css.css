@@ -193,114 +193,39 @@ body {
     color: white;
 }
 
-
+/*PANTRY STYLES */
+#mypantry-body {
+    background-color: #e6d9c3;
+}
 #pantry-container {
-    color:#fff
-}
-
-
-#pantry-table {
-    width: 20%;
-    float: right;
-    border-collapse: collapse;
-    margin: 25px auto;
-    font-size: 18px;
-    background-color: #fff9e6; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-#pantry-table th {
-    background-color: #d7a96b;
-    color: #ffffff;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px;
-    font-family: 'Arial', sans-serif;
-}
-
-#pantry-table th, #pantry-table td {
-    border: 1px solid #d7a96b; 
-    padding: 10px;
-    text-align: left;
-}
-
-#pantry-table td {
-    background-color: #fff5da;
-    color: #4f3d21; 
-    font-family: 'Verdana', sans-serif;
-}
-
-#pantry-table tr:hover {
-    background-color: #f9e4bc; 
-}
-
-#pantry-container {
-    background-color: #e6d3b3;
-    padding: 20px;
-    border-radius: 15px;
-    margin:  auto;
-    width: 50%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    font-family: 'Georgia', serif; 
-}
-
-#pantry-header {
-    text-align: center;
-    margin: 20px auto;
-    background: #d4a373;
-    color: #fff;
-    padding: 10px 20px;
-    display: inline-block;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#pantry-header h1 {
-    font-size: 3rem;
-    margin: 0;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-    border-bottom: 4px solid #b88b4a;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 100%;
 }
 
 #pantry-form {
+    width: 20%;
     background-color: #f3e1c0;
-    padding: 20px;
+    padding: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     font-family: 'Georgia', serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #4a4a4a;
 }
 
-#pantry-form input[type="text"] {
-    padding: 8px 12px;
-    border: 2px solid #d4a373;
-    border-radius: 6px;
-    font-size: 1rem;
-    color: #333;
-    outline: none;
-}
-
-#pantry-form input[type="text"]::placeholder {
-    color: #a9a9a9;
-}
-
+#pantry-form input[type="text"],
 #pantry-form select {
+    width: 100%;
     padding: 8px;
     border: 2px solid #d4a373;
     border-radius: 6px;
     font-size: 1rem;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
 }
 
 #pantry-form button {
@@ -318,7 +243,42 @@ body {
     background-color: #8e44ad;
 }
 
-#pantry-form label {
+#pantry-form button:active {
+    background-color: #6c3483;
+}
+
+#pantry-table {
+    width: 22%;
+    float: none;
+    border-collapse: collapse;
+    font-size: 18px;
+    background-color: #fff9e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#pantry-table th {
+    background-color: #d7a96b;
+    color: #ffffff;
     font-weight: bold;
-    color: #333;
+    text-transform: uppercase;
+    padding: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+#pantry-table th, #pantry-table td {
+    border: 1px solid #d7a96b;
+    padding: 10px;
+    text-align: left;
+}
+
+#pantry-table td {
+    background-color: #fff5da;
+    color: #4f3d21;
+    font-family: 'Verdana', sans-serif;
+}
+
+#pantry-table tr:hover {
+    background-color: #f9e4bc;
 }
