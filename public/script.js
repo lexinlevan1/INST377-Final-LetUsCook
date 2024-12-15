@@ -155,6 +155,10 @@ async function addIngredient(){
 
 // loads pantry from database into table
 async function loadPantry(){
+  const pantryContainer = document.getElementById('pantry-container');
+  if (!pantryContainer){
+    return;
+  }
   await fetch(`${host}/api/mypantry`)
   .then((res) => res.json())
   .then((data) =>{
