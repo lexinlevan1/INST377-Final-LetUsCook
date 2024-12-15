@@ -199,16 +199,20 @@ body {
 }
 #pantry-container {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 #pantry-form {
-    width: 20%;
+    flex: 0 0 300px;
+    border: 1px solid red;
+    display: flex;
+    width: 100%;
     background-color: #f3e1c0;
-    padding: 15px;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -248,8 +252,9 @@ body {
 }
 
 #pantry-table {
-    width: 22%;
-    float: none;
+    margin: 0;
+    width: 100%;
+    border: 1px solid green;
     border-collapse: collapse;
     font-size: 18px;
     background-color: #fff9e6;
@@ -282,3 +287,6 @@ body {
 #pantry-table tr:hover {
     background-color: #f9e4bc;
 }
+
+
+/* Generated Recipe */
