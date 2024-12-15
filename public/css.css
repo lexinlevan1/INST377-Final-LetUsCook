@@ -412,19 +412,6 @@ body {
       color: white;
       margin-bottom: 20px;
   }
-  .slider-section {
-    margin:30px auto;
-    max-width:1000px;
-    text-align:center;
-
-  }
-
-  .slider img {
-    width:100px;
-    height:auto;
-    object-fit:cover;
-    border-radius:10px;
-  }
 
   footer {
     background-color: #422e19;
