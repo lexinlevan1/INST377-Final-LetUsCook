@@ -38,62 +38,95 @@ function printText() {
 }
 
 async function getRecipeOfDay(){
-  //api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=035a7b05ba264f83a777c9c81e5651a3")
+  const today = new Date().toISOString().slice(0,10)
+ 
+  const keys = Object.keys(localStorage)
+  if (keys.includes(today)){
+    recipe = localStorage.getItem(today)
+    displayRecipe(recipe)
+    return;
+  }
+
+  //const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=33d614d7ec7f49f3abc66a103823353f")
   //  .then((res)=> res.json())
-  //  results = api['results']
-  //  id = results[0].id
-    recipe_name = "Cookies"
-    //recipe_image = results[0].image
-    recipe_image = "https://img.spoonacular.com/recipes/1096298-312x231.jpg"
-    document.getElementById('rod_name').innerHTML =`Today's Recipe is: ${recipe_name}`
-    //create image
-    img = document.getElementById('rod_image').src= recipe_image
+    const results = api['results']
+    console.log("results", results)
+    const id = results[0].id
+    const recipe_name = results[0].title
+    const recipe_image = results[0].image;
 
-    ingredients = await fetch("http://localhost:3001/ingredients")
-    .then((res)=>res.json())
+   // const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
+   // .then((res)=>res.json())
 
-    const table = document.createElement('table');
-      table.setAttribute('id', 'recipeInfo');
+    console.log(ingredients)
+    const recipeData = {id, recipe_name, recipe_image, ingredients}
 
-      const tableRow = document.createElement('tr');
+    localStorage.setItem(today, JSON.stringify(recipeData));
 
-      const tableHeading1 = document.createElement('th');
-      tableHeading1.innerHTML = 'Ingredient';
-      tableRow.appendChild(tableHeading1);
+    displayRecipe(recipeData);
 
-      const tableHeading2 = document.createElement('th');
-      tableHeading2.innerHTML = 'Amount';
-      tableRow.appendChild(tableHeading2);
+}
 
-      const tableHeading3 = document.createElement('th');
-      tableHeading3.innerHTML = 'Unit';
-      tableRow.appendChild(tableHeading3);
+async function displayRecipe(recipe) {
+  const dict = JSON.parse(recipe)
+  const recipe_name = dict.recipe_name
+  console.log(dict)
+  const recipe_image = dict.recipe_image
+  const ingredients = dict.ingredients
+  console.log(ingredients)
+  //const {recipe_id, recipe_name, recipe_image, ingredients} = recipe;
 
-      table.appendChild(tableRow);
+  document.getElementById('rod_name').innerHTML = `Today's Recipe is: ${recipe_name}`
 
-    ingredients['ingredients'].forEach((item)=> {
-      item_name = item.name
-      item_amount = item.amount['us'].value
-      item_unit = item.amount['us'].unit
-      console.log(item_amount, item_unit)
+  document.getElementById('rod_image').src = recipe_image
+  
+  const table = document.createElement('table')
+  table.setAttribute('id', 'recipeInfo')
 
-      const customerTableRow = document.createElement('tr');
-        const customerTableIngredient = document.createElement('td');
-        const customerTableAmount = document.createElement('td');
-        const customerTableUnit = document.createElement('td');
+  const tableRow = document.createElement('tr');
 
-        customerTableIngredient.innerHTML = item_name;
-        customerTableAmount.innerHTML = item_amount;
-        customerTableUnit.innerHTML = item_unit;
+  const tableHeading1 = document.createElement('th');
+  tableHeading1.innerHTML = 'Ingredient';
+  tableRow.appendChild(tableHeading1);
 
-        customerTableRow.appendChild(customerTableIngredient);
-        customerTableRow.appendChild(customerTableAmount);
-        customerTableRow.appendChild(customerTableUnit);
+  const tableHeading2 = document.createElement('th');
+  tableHeading2.innerHTML = 'Amount';
+  tableRow.appendChild(tableHeading2);
 
-        table.appendChild(customerTableRow);
-    });
+  const tableHeading3 = document.createElement('th');
+  tableHeading3.innerHTML = 'Unit';
+  tableRow.appendChild(tableHeading3);
 
-    document.body.appendChild(table)
+  table.appendChild(tableRow);
+
+  ingredients['ingredients'].forEach((item)=> {
+    item_name = item.name
+    item_amount = item.amount['us'].value
+    item_unit = item.amount['us'].unit
+    console.log(item_amount, item_unit)
+
+    const customerTableRow = document.createElement('tr');
+    const customerTableIngredient = document.createElement('td');
+    const customerTableAmount = document.createElement('td');
+    const customerTableUnit = document.createElement('td');
+
+    customerTableIngredient.innerHTML = item_name;
+    customerTableAmount.innerHTML = item_amount;
+    customerTableUnit.innerHTML = item_unit;
+
+    customerTableRow.appendChild(customerTableIngredient);
+    customerTableRow.appendChild(customerTableAmount);
+    customerTableRow.appendChild(customerTableUnit);
+
+    table.appendChild(customerTableRow);
+  });
+
+  const existingTable = document.getElementById('recipeInfo')
+  if (existingTable){
+    existingTable.remove();
+  }
+
+  document.body.appendChild(table)
 }
 
 
