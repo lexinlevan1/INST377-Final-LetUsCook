@@ -4,12 +4,14 @@
 
 * git clone repo
 * ensure Node.js and npm are installed
-* npm install dependencies including:
+* To install dependencies listed below, run `npm install` with the current directory of the repo in your terminal.
   * @supabase/supabase-js
   * body-parser
   * dontev
   * express
   * nodemon
+  * node-fetch
+
 
 ### Running the Application
 
@@ -20,6 +22,7 @@ Alternatively, you could visit the vercel link to view the running application t
 * [https://inst-377-final-let-us-cook.vercel.app/](https://my-pantry-pi.vercel.app/)
 
 ### Running Tests
+* No tests have been written at the moment, but will look to working on some in the future.
 
 ### API Documentation
 
@@ -41,6 +44,10 @@ Alternatively, you could visit the vercel link to view the running application t
   * id: id number for recipe
 * Response: JSON array of ingredients
 
+**GET** `/api/recipes`
+* Description: Retrieves all recipies that can be made based on ingredients in myPantry
+* Resopnse: JSON Array of 10 recipes 
+
 **GET** `/api/mypantry`
 * Description: Gets all ingredients in pantry
 * Response: JSON array of ingredients
@@ -56,11 +63,16 @@ Alternatively, you could visit the vercel link to view the running application t
     ```
 
 ### Known Bugs and Roadmap
+* Vercel deployment often creates issues that may not keep up with pushed repo, may need to use different domains
 
 ### Bugs
 - **Bug 1**: Recipe of Day Issue
    - **Description**: Recipe of day is different for each user
    - **Current Status**: Right now, the recipe will be unique for each user. However, our next steps are to store the recipes in a database insead of in local storage so it is the same for each user
+
+- **Bug 2**: Vercel App Deployment Issue
+  - **Description**: Vercel deployment often creates issues that may not keep up with pushed repo, may need to use different domains
+  - **Current Status**: Redeploy with a different project name once in a while
 ### Roadmap
 - **Feature 1**: User Authentication
   - implement user authentication with secure login

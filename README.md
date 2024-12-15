@@ -13,7 +13,7 @@ Let Us Cook
 
 ## Description
 
-This application is aimed to help anyone who struggles coming up with recipes daily, specifically college students, with recipe ideas based on what the user has in their pantry. The user will be prompted to enter the ingedients they have and it will provide them with a list of recipes they can make with these ingredients. This application was written using HTML, CSS, Javascript, Node.js and Supabase and will deployed using Vercel. 
+This application is aimed to help anyone who struggles coming up with recipes daily, specifically college students, with recipe ideas based on what the user has in their pantry. The user will be prompted to enter the ingedients they have and it will provide them with a list of recipes they can make with these ingredients. We hope to provide digital accessibility throughout different devices across the span of mobile, tablet, and desktop domains. This application was written using HTML, CSS, Javascript, Node.js and Supabase and will deployed using Vercel. 
 
 
 ## Description of target browsers
