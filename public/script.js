@@ -182,12 +182,22 @@ async function loadPantry(){
       const pantryRow = document.createElement('tr');
       const pantryIngredient = document.createElement('td');
       const pantryQuantity = document.createElement('td');
+      const pantryDelete = document.createElement('td');
+
 
       pantryIngredient.innerHTML = item.ingredient;
       pantryQuantity.innerHTML = item.quantity;
 
+      const deleteButton = document.createElement('button');
+      deleteButton.innerHTML = 'Delete';
+      deleteButton.onclick = () => deleteIngredient(item.ingredient);
+
+      pantryDelete.appendChild(deleteButton);
+
+
       pantryRow.appendChild(pantryIngredient);
       pantryRow.appendChild(pantryQuantity);
+      pantryRow.appendChild(pantryDelete);
 
       table.appendChild(pantryRow);
     });
@@ -199,6 +209,26 @@ async function loadPantry(){
 
     document.body.appendChild(table);
   })
+}
+
+async function deleteIngredient(ingredient){
+  const confirm = window.confirm(`Are you sure you want to delete ${ingredient}?`);
+  if (!confirm){
+    return;
+  }
+
+  await fetch(`${host}/api/mypantry`, {
+    method: 'DELETE',
+    body: JSON.stringify({
+      ingredient: ingredient
+  }),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+  })
+
+  await loadPantry();
+
 }
 
 
