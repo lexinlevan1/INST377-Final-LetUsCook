@@ -22,7 +22,7 @@ async function getPantry(){
 
 async function getRecipes(){
     // fetch recipes based on ingredientList and displays only 5 recipes
-    await fetch(`${spoonacular}?ingredients=${ingredientList.join(",")}&number=5&apiKey=${process.env.SPOONACULAR_API_KEY}`)
+    await fetch(`${spoonacular}?ingredients=${ingredientList.join(",")}&number=5&apiKey=${process.env.SPOONACULAR_KEY}`)
     .then((res) => res.json())
     .then((data) => {
         console.log(data);
