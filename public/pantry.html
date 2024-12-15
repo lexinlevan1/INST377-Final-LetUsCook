@@ -5,9 +5,11 @@
         <link rel='stylesheet' href="css.css">
     </head>
 
+    
     <body id="mypantry-body">
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <div class="logo">MY PANTRY</div>
+            <ul class="nav-links">
                 <li><a href = 'home.html'>Home</a></li>
                 <li><a href='recipe_of_day.html'> Recipe of the Day</a></li>
                 <li><a href='pantry.html'> Pantry</a></li>
@@ -15,12 +17,12 @@
             </ul>
         </nav>
 
-        <h1 id="pantry-header">My Pantry</h1>
+        <h1 class="pantry-header">My Pantry</h1>
         <div id="pantry-container">
         <form onsubmit="addIngredient(); return false;" id="pantry-form">
             <label for="ingredient">Please Enter your Ingredient(s)</label>
             <br>
-            <input type="text" id="ingredient" placeholder="e.g. Flour" required>
+            <input type="text" class="ingredient" placeholder="e.g. Flour" required>
             <select id="quantity" required>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -33,7 +35,7 @@
                 <option value="9">9</option>
                 <option value="10">10</option> 
             </select>
-            <button type="submit" class="custom-btn"> Submit</button>
+            <button type="submit" class="custom-btn"> Let's Cook</button>
         </form>
       </div>
     </body>
