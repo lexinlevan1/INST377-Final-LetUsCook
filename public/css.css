@@ -409,7 +409,7 @@ body {
   
   h1 {
       font-size: 40px;
-      color: var(--contrast-color);
+      color: white;
       margin-bottom: 20px;
   }
   
