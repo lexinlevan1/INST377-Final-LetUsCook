@@ -5,7 +5,7 @@
         <link rel='stylesheet' href="css.css">
     </head>
 
-    <body>
+    <body id="help-body">
         <nav class="navbar">
             <div class="logo">MY PANTRY</div>
             <ul class="nav-links">
@@ -15,5 +15,24 @@
                 <li><a href='help.html'>Help</a></li>
             </ul>
         </nav>
+
+        <h1 id="help-h1">HELP</h1>
+        <ul id="help">
+            <li>To enter ingredients in pantry, click the "Pantry" button 
+                from the home page or navigation bar. You will then be prompted to enter 
+                ingredients
+            </li>
+            <li>Click the 'Let's Cook' Button to search for recipes based on the ingredients you have!</li>
+            <li>If you want to see our recipe of the day, click the "Recipe of Day" button located on the navigation bar.
+                This recipe will provide all the ingredients you need as well as the instructions.
+            </li>
+            <li>Click the buttons below to navigate to desired page!</li>
+        </ul>
+
+        <div class="help-buttons">
+            <button onclick = "window.location = href='home.html'"class="button-5" id="help-hone"role="button">Home</button>
+            <button onclick = "window.location = href='recipe_of_day.html'" class="button-5" id = "help-rod" role="button">Recipe of Day</button>
+            <button onclick = "window.location = href='pantry.html'" class="button-5" id ="help-pantry" role="button">Pantry</button>
+        </div>
     </body>
 </html>
