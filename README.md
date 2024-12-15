@@ -23,6 +23,7 @@ This application is aimed to help anyone who struggles coming up with recipes da
 * Desktop Browsers
 
 ## Developer Manual
+* Link to Developer Manual: "developer-manual.md" 
 
 ### Installation
 
