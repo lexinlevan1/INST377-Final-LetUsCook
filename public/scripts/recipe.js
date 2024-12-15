@@ -20,17 +20,22 @@ async function getPantry(){
 
 }
 
-async function getRecipes(){
-    // fetch recipes based on ingredientList and displays only 5 recipes
-    await fetch(`${spoonacular}?ingredients=${ingredientList.join(",")}&number=5&apiKey=${process.env.SPOONACULAR_KEY}`)
-    .then((res) => res.json())
-    .then((data) => {
-        console.log(data);
-    });
+async function getRecipes() {
+    try {
+        const response = await fetch(`${host}/api/recipes?ingredients=${ingredientList.join(',')}`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch recipes: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log("Recipes:", data);
+    } catch (error) {
+        console.error("Error fetching recipes:", error);
+    }
 }
 
-window.onload = function(){
-    getPantry();
-    getRecipes();
+
+window.onload = async function(){
+    await getPantry();
+    await getRecipes();
 }
 

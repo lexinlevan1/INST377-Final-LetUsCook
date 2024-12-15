@@ -1,6 +1,9 @@
 // config file with all the required keys that need to be hidden
 //const config= require('./config.json');
 
+// Fetch for spoonacular API to hide api key
+const fetch = require('node-fetch');
+
 // Runs express server, which serves the website
 const express = require('express');
 const app = express();
@@ -27,6 +30,36 @@ app.get('/', (req, res) => {
     console.log('Loading home-page');
     res.sendFile('public/home.html', { root: __dirname });
 });
+
+app.get('/api/recipes', async (req, res) => {
+  const spoonacularKey = process.env.SPOONACULAR_KEY;
+  const { ingredients } = req.query;
+
+  if (!ingredients) {
+    return res.status(400).send('Please provide a list of ingredients');
+  }
+
+  console.log('Fetching recipes for ingredients:', ingredients);
+
+  try {
+    const response = await fetch(
+      `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=5&apiKey=${spoonacularKey}`
+    );
+
+    if (!response.ok) {
+      throw new Error(`Error fetching recipes: ${response.statusText}`);
+    }
+
+    const recipes = await response.json();
+    console.log('Recipes fetched successfully:', recipes);
+
+    res.status(200).send(recipes);
+  } catch (error) {
+    console.error('Error fetching recipes:', error.message);
+    res.status(500).send('Error fetching recipes');
+  }
+});
+
 
 app.get('/api/mypantry', async (req, res) => {
     console.log('Loading mypantry');
