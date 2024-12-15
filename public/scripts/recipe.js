@@ -21,18 +21,40 @@ async function getPantry(){
 }
 
 async function getRecipes() {
-    try {
-        const response = await fetch(`${host}/api/recipes?ingredients=${ingredientList.join(',')}`);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch recipes: ${response.statusText}`);
-        }
-        const data = await response.json();
-        console.log("Recipes:", data);
-    } catch (error) {
-        console.error("Error fetching recipes:", error);
-    }
-}
+    const slidesContainer = document.getElementById("recipe-slides");
+    slidesContainer.innerHTML = "";
 
+    await fetch(`${host}/api/recipes?ingredients=${ingredientList.join(',')}`)
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((recipe) => {
+            console.log(recipe);
+            const slide = `
+                <div class="swiper-slide">
+                    <h3>${recipe.title}</h3>
+                    <img src="${recipe.image}" alt="${recipe.title}">
+                    <p> Ingredients Used: ${recipe.usedIngredients.map((ingredient) => ingredient.name).join(', ')}</p>
+                    <p> Ingredients Missed: ${recipe.missedIngredients.map((ingredient) => ingredient.name).join(', ')}</p>
+                </div>
+            `
+
+            slidesContainer.insertAdjacentHTML("beforeend", slide);
+        });
+
+        new Swiper(`.swiper` , {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 5000
+            }
+        })
+    });
+}
 
 window.onload = async function(){
     await getPantry();

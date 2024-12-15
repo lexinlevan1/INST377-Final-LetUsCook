@@ -43,7 +43,7 @@ app.get('/api/recipes', async (req, res) => {
 
   try {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=5&apiKey=${spoonacularKey}`
+      `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&apiKey=${spoonacularKey}`
     );
 
     if (!response.ok) {

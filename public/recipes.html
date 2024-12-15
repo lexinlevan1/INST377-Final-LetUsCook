@@ -4,6 +4,10 @@
         <script src="scripts/recipe.js" defer></script>
         <link rel='stylesheet' href="css.css">
         <link rel="stylesheet" href="style/recipe.css">
+
+        <!--Swiper JS-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
 
     <body>
@@ -21,7 +25,15 @@
         <h1 id="recipeTitle">Recipes</h1>
 
         <div class="recipe-wrapper">
+           <div class="swiper">
+                <div class="swiper-wrapper" id="recipe-slides">
+                    <!--Dynamically Added Slides-->
+                </div>
 
+                <!--Arrows-->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+           </div>
         </div>
     </body>
 
