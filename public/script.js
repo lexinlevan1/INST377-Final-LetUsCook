@@ -131,7 +131,7 @@ async function displayRecipe(recipe) {
 }
 
 // Adds ingredient from web to pantry database
-async function addIngredients(){
+async function addIngredient(){
   const ingredient = document.getElementById('ingredient').value;
   const quantity = document.getElementById('quantity').value;
 
