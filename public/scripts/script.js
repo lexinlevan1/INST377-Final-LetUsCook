@@ -49,34 +49,38 @@ async function getRecipeOfDay(){
     return;
   }
 
-  //const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=33d614d7ec7f49f3abc66a103823353f")
-  const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0")
-  console.log(api)
+  try{
+    //fetch a random recipe from the api
+    const api = await fetch("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0")
     .then((res)=> res.json())
     const results = api['results']
+    console.log(api)
     const id = results[0].id
     const recipe_name = results[0].title
     const recipe_image = results[0].image;
 
-    //const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
+    //fetch ingredients for the recipe
     const ingredients = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0`)
+    .then((res)=>res.json())
     console.log(ingredients)
 
-    .then((res)=>res.json())
-
-    //const instructAPI = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=33d614d7ec7f49f3abc66a103823353f`)
+    //fetch instructions for the recipe
     const instructAPI = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=e45836f40e2a487ea2aeaa3f8ab6d6a0`)
+    .then((res)=> res.json())
     console.log(instructAPI)
 
-    .then((res)=> res.json())
-
+    //compile recipe data
     const recipeData = {id, recipe_name, recipe_image, ingredients, instructAPI}
 
+    //save to local storage
     localStorage.setItem(today, JSON.stringify(recipeData));
     console.log(recipeData)
 
     displayRecipe(recipeData);
 
+  }  catch (error) {
+    console.log('error fetching recipe data: ', error)
+  }
 }
 
 async function displayRecipe(recipe) {
