@@ -78,6 +78,14 @@ app.post('/api/mypantry', async (req, res) => {
     .delete()
     .match({ ingredient: ingredient });
 
+    if (error) {
+        console.log('Error deleting ingredient');
+        res.send(error);
+    } else {
+        console.log('Ingredient deleted successfully');
+        res.send(data);
+    }
+
   })
   
 
