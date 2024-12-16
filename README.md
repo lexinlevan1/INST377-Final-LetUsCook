@@ -42,7 +42,7 @@ Run the following command on the terminal to run the application on your local d
 * `npm start`
 
 Alternatively, you could visit the vercel link to view the running application through Vercel:
-* [https://mypantryprojectnew.vercel.app](https://mypantryprojectnew.vercel.app)
+* [https://finalpantry.vercel.app/](https://finalpantry.vercel.app/)
 
 ### API Documentation
 
