@@ -22,7 +22,7 @@ This application is aimed to help anyone who struggles coming up with recipes da
 * IOS
 * Andriod
 
-## Developer Manual
+## [Developer Manual](docs/developer-manual.md)
 
 ### Installation
 
