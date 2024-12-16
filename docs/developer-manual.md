@@ -15,7 +15,7 @@
 
 ### Running the Application
 
-Run the following command on the terminal to run the application on your local device (it will be available at "http://localhost:3000"
+Run the following command on the terminal to run the application on your local device (it will be available at "http://localhost:3000")
 * `npm start`
 
 Alternatively, you could visit the vercel link to view the running application through Vercel:
@@ -73,6 +73,11 @@ Alternatively, you could visit the vercel link to view the running application t
 - **Bug 2**: Vercel App Deployment Issue
   - **Description**: Vercel deployment often creates issues that may not keep up with pushed repo, may need to use different domains
   - **Current Status**: Redeploy with a different project name once in a while
+ 
+- **Bug 3**: Dangerous website
+   - **Description**: Upon opening the website, there is a message indicating that our site is "dangerous"
+   - **Current Status**: we are unsure of why this is happening and our next steps are to figure our why this is happening and find a solution
+
 ### Roadmap
 - **Feature 1**: User Authentication
   - implement user authentication with secure login
