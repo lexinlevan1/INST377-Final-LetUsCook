@@ -48,21 +48,60 @@
         </div>
         <!-- Slider -->
         
-        <h1 style="text-align:center; margin-bottom:20px;" class="titleHome" id="creator-name">Meet The Creators</h3>
+        <h1 style="text-align:center; margin-bottom:20px;" class="titleHome" id="creator-name">Meet The Creators</h1>
         <div style="width:612px; height:612px;" class="container-image" data-simple-slider>
-          <img src="images/creator1.jpg" alt="Creator">
-          <img src="images/lily_picture.png" alt="Creator2">
-
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
-        <script>
-          simpleslider.getSlider();
-        </script>
-        </section>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+          <img src="images/creator1.jpg" alt="Creator1">          
+          <img src="images/creator2.jpg" alt="Creator2">
+          <img src="images/lily_picture.png" alt="Creator3">
+          <img src="images/testudo.jpg" alt="Creator4">
+        </div>
+        <br><br><br><br><br>
         <!-- Footer -->
         <footer>
-          <p>My Pantry &copy; 2024 | All Rights Reserved</p>
+          <h6>My Pantry &copy; 2024 | All Rights Reserved</h6>
         </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", () =>{
+            const creatorNames = ["Lexin", "Lily", "Michelle", "Dagem"];
+            const sliderElement = document.querySelector('[data-simple-slider]');
+            const creatorNameElement = document.getElementById('creator-name');
+          
+            const images = sliderElement.querySelectorAll('img');
+
+            images.forEach((img,index) => {
+              img.style.display = index === 0 ? 'block' : 'none';
+
+              
+            });
+
+            setTimeout(() =>{
+              images.forEach((img) => {
+                img.style.display = 'block';
+                
+              });
+            }, 100);
+            const slider = simpleslider.getSlider({
+              container: sliderElement,
+              transitionTime: 0.5,
+              delay: 3,
+              init: () => updateCreatorName(0), // Initialize with the first slide
+              onChange: (index) => updateCreatorName(index), // Update name when slide changes
+            });
+          
+            function updateCreatorName(index) {
+              const currentName = creatorNames[index]; // Get the name based on the current index
+              creatorNameElement.innerHTML = `Meet The Creator... ${currentName}`; // Update the inner HTML
+            }
+          });
+
+          
+        </script>
+        
+        
+        
+        
+        
     </body>
 </html>
