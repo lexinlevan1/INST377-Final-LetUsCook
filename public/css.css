@@ -34,28 +34,6 @@
 }
 
 
-/* 
-
-nav ul {
-    list-style-type: none;
-    background-color: #333;
-    display: flex;
-    justify-content: space-around;
-}
-
-nav ul li {
-    padding:10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-nav ul li:hover {
-    background-color: #5d5d5d;
-} */
-
 #intro {
     font-size: 50px;
     text-align: center;
@@ -206,7 +184,7 @@ body {
 
 /*PANTRY STYLES */
 #mypantry-body {
-    background-color: #e6d9c3;
+    background-color: #121212;
 }
 #pantry-container {
     display: flex;
